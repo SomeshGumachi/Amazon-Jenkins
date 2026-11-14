@@ -8,12 +8,7 @@ pipeline {
                 git branch: 'main', url: 'https://github.com/SomeshGumachi/Amazon-Jenkins.git'
             }
         }
-        stage('compile') {
-            steps {
-                sh 'mvn compile'
-            }
-        }
-
+       
         stage('build') {
             steps {
                  sh 'mvn clean install'
