@@ -14,6 +14,17 @@ pipeline {
                  sh 'mvn clean install'
             }
         }
+
+        stage('Deploy') {
+            when {
+                expression { 
+                    return env.GIT_BRANCH?.contains('release') 
+                }
+            }
+            steps {
+                echo 'Release branch detected. Deploying...'
+            }
+        }
     }
     
 post {
